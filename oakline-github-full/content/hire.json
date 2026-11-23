@@ -1,0 +1,9 @@
+{
+  "roles": [
+    { "title": "Media buyer", "desc": "Runs and scales your Meta and TikTok ads" },
+    { "title": "Shopify developer", "desc": "Builds and maintains your store" },
+    { "title": "Virtual assistant", "desc": "Orders, suppliers and customer emails" },
+    { "title": "Ad creative designer", "desc": "Images and videos for your ads" },
+    { "title": "Customer support agent", "desc": "Live chat, email and returns" }
+  ]
+}

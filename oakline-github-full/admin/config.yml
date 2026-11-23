@@ -1,0 +1,72 @@
+# OaklineLiving admin panel (Decap CMS)
+# Change ONLY the repo line below to your GitHub username/repository name.
+backend:
+  name: github
+  repo: YOUR-GITHUB-USERNAME/oakline-site
+  branch: main
+
+site_url: https://oaklinelivingltd.com
+display_url: https://oaklinelivingltd.com
+media_folder: images/uploads
+public_folder: /images/uploads
+
+collections:
+  - name: website
+    label: Website content
+    editor:
+      preview: false
+    files:
+      - name: team
+        label: Team members
+        file: content/team.json
+        fields:
+          - name: members
+            label: Team members
+            label_singular: Team member
+            widget: list
+            summary: "{{fields.name}} – {{fields.role}}"
+            fields:
+              - { name: name, label: Name, widget: string }
+              - { name: role, label: Job title, widget: string }
+              - { name: bio, label: Short bio, widget: text }
+              - { name: photo, label: Photo (optional), widget: image, required: false }
+
+      - name: jobs
+        label: Job openings (Careers)
+        file: content/jobs.json
+        fields:
+          - name: roles
+            label: Open roles
+            label_singular: Role
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { name: title, label: Role title, widget: string }
+              - { name: type, label: "Type (e.g. Remote · Full time)", widget: string }
+
+      - name: hire
+        label: Hire an employee roles
+        file: content/hire.json
+        fields:
+          - name: roles
+            label: Roles businesses can hire
+            label_singular: Role
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { name: title, label: Role title, widget: string }
+              - { name: desc, label: Short description, widget: string }
+
+      - name: settings
+        label: Contact details
+        file: content/settings.json
+        fields:
+          - { name: email, label: Business email, widget: string }
+          - { name: phone, label: Business phone, widget: string }
+          - { name: whatsapp, label: WhatsApp number, widget: string }
+          - { name: company_number, label: Company number, widget: string, required: false }
+          - { name: address, label: Registered address, widget: string, required: false }
+          - { name: instagram, label: Instagram link, widget: string, required: false }
+          - { name: tiktok, label: TikTok link, widget: string, required: false }
+          - { name: facebook, label: Facebook link, widget: string, required: false }
+          - { name: linkedin, label: LinkedIn link, widget: string, required: false }

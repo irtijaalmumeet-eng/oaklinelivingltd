@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OaklineLiving LTD</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* VOICE occasion: a calm, premium agency site for Shopify beginners
+   IDEA a store being built plank by plank, like oak joinery: warm, solid, finished
+   PICTURE an illustrated browser window of a new Shopify store with ad + email cards docked around it
+   COLOUR cream ground, beige/sand fields, espresso ink, oak brown accent, sage support
+   TYPE Plus Jakarta Sans 800 display + Inter text
+   LAYOUT laptop: title across top, store picture beneath full width; phone: title, picture, buttons */
+:root{color-scheme:light dark;
+--bg:light-dark(#f7f1e6,#1c1712);
+--sand:light-dark(#ece1cd,#29221b);
+--card:light-dark(#fffaf1,#241e18);
+--ink:light-dark(#2b2118,#f3e9d9);
+--soft:light-dark(#6b5a48,#c4b29b);
+--line:light-dark(#dccdb4,#3d3329);
+--oak:light-dark(#8a5a2b,#d9a466);
+--oakd:light-dark(#6e4520,#e8b97f);
+--sage:light-dark(#7c8a6a,#a3b38f);
+--on:light-dark(#fffaf1,#1c1712)}
+:root[data-theme=light]{color-scheme:light}
+:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Inter,system-ui,sans-serif;overflow-x:clip}
+h1,h2,h3{font-family:"Plus Jakarta Sans",Inter,sans-serif;letter-spacing:-.02em;line-height:1.08;margin:0;text-wrap:balance}
+h1{font-size:clamp(36px,5.4vw,60px);font-weight:800}
+h2{font-size:clamp(30px,3.8vw,44px);font-weight:800}
+h3{font-size:19px;font-weight:700}
+p{margin:0}
+a{color:inherit}
+.wrap{max-width:1240px;margin:0 auto}
+.band{padding-block:clamp(48px,6vw,96px);padding-inline:max(5vw,16px)}
+.sandb{background:var(--sand)}
+.inkb{background:var(--ink);color:var(--bg)}
+.lead{font-size:17px;color:var(--soft);max-width:60ch}
+.inkb .lead{color:color-mix(in srgb,var(--bg) 78%,transparent)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 22px;border-radius:999px;font:600 16px Inter,sans-serif;text-decoration:none;border:1.5px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer}
+.btn.pri{background:var(--oak);border-color:var(--oak);color:var(--on)}
+.btn:hover{transform:translateY(-1px)}
+.btn:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible,.nav a:focus-visible{outline:3px solid var(--sage);outline-offset:2px}
+/* nav */
+header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;gap:20px;padding:12px max(5vw,16px);max-width:1340px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:10px;font:800 19px "Plus Jakarta Sans",sans-serif;text-decoration:none;white-space:nowrap}
+.nav{display:flex;gap:4px;margin-left:auto;flex-wrap:wrap}
+.nav a{text-decoration:none;font-weight:500;font-size:15px;padding:10px 12px;border-radius:10px;color:var(--soft)}
+.nav a:hover{color:var(--ink);background:var(--sand)}
+.bar .btn{min-height:44px;padding:0 18px;font-size:15px}
+.menu{display:none}
+@media(max-width:900px){.nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--bg);flex-direction:column;padding:8px 16px 16px;border-bottom:1px solid var(--line)}.nav.open{display:flex}.menu{display:inline-flex;margin-left:auto}.bar>.btn.pri{display:none}}
+/* hero */
+.hero{padding-bottom:0}
+.htop{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:clamp(20px,4vw,56px);align-items:end}
+.htop .lead{margin-top:18px}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.trust{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:18px;font-size:14px;color:var(--soft)}
+.trust span{display:flex;align-items:center;gap:7px;white-space:nowrap}
+.trust span::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--sage)}
+.stage{margin-top:clamp(32px,4vw,56px);background:var(--sand);border-radius:28px 28px 0 0;padding:clamp(16px,3vw,40px) clamp(12px,3vw,40px) 0;overflow:hidden}
+.stage svg{display:block;width:100%;height:auto}
+@media(max-width:760px){.htop{grid-template-columns:minmax(0,1fr)}}
+/* sections */
+.head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:end;margin-bottom:40px}
+@media(max-width:760px){.head{grid-template-columns:minmax(0,1fr)}}
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border-top:2px solid var(--ink)}
+.steps div{padding:22px 22px 8px 0}
+.steps div+div{padding-left:22px;border-left:1px solid var(--line)}
+.steps b{display:block;font:800 15px "Plus Jakarta Sans",sans-serif;color:var(--oak);margin-bottom:10px}
+.steps p{color:var(--soft);margin-top:8px}
+@media(max-width:860px){.steps{grid-template-columns:repeat(2,minmax(0,1fr))}.steps div:nth-child(3){padding-left:0;border-left:0}.steps div:nth-child(n+3){border-top:1px solid var(--line)}}
+@media(max-width:520px){.steps{grid-template-columns:minmax(0,1fr)}.steps div,.steps div+div{padding-left:0;border-left:0}.steps div+div{border-top:1px solid var(--line)}}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+@media(max-width:900px){.grid3{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:580px){.grid3{grid-template-columns:minmax(0,1fr)}}
+.svc{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:26px;display:flex;flex-direction:column;gap:10px}
+.svc svg{width:48px;height:48px}
+.svc p{color:var(--soft)}
+.svc.big{background:var(--oak);border-color:var(--oak);color:var(--on)}
+.svc.big p{color:color-mix(in srgb,var(--on) 85%,transparent)}
+.svc.big svg *{stroke:var(--on)}
+.why{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;margin-top:8px}
+.why div{border-top:1px solid color-mix(in srgb,var(--bg) 35%,transparent);padding-top:18px}
+.why h3{font-size:clamp(22px,2.4vw,28px)}
+.why p{margin-top:8px;color:color-mix(in srgb,var(--bg) 75%,transparent)}
+@media(max-width:860px){.why{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:480px){.why{grid-template-columns:minmax(0,1fr)}}
+.team{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+@media(max-width:900px){.team{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:440px){.team{grid-template-columns:minmax(0,1fr)}}
+.mem{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden}
+.mem svg{display:block;width:100%;height:auto;background:var(--sand)}
+.mem div{padding:18px}
+.mem small{display:block;color:var(--oak);font-weight:600;font-size:14px;margin:4px 0 8px}
+.mem p{color:var(--soft);font-size:15px}
+.note{font-size:13px;color:var(--soft);margin-top:16px}
+/* careers + forms */
+.split{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(24px,4vw,56px);align-items:start}
+@media(max-width:860px){.split{grid-template-columns:minmax(0,1fr)}}
+.roles{display:grid;gap:12px;margin-top:28px}
+.role{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px}
+.role span{color:var(--soft);font-size:14px}
+.role button{min-height:44px;font-size:14px;padding:0 16px}
+form{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:clamp(20px,3vw,32px);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+form h3{grid-column:1/-1;font-size:24px}
+.f{display:flex;flex-direction:column;gap:6px}
+.f.w{grid-column:1/-1}
+label{font-weight:600;font-size:14px}
+input,select,textarea{font:16px Inter,sans-serif;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:12px;padding:12px 14px;min-height:48px;width:100%}
+textarea{min-height:110px;resize:vertical}
+input[type=file]{padding:10px}
+.chk{grid-column:1/-1;display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--soft)}
+.chk input{width:20px;height:20px;min-height:0;margin-top:2px;flex:none;accent-color:var(--oak)}
+form .btn{grid-column:1/-1}
+.plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:24px}
+.plan{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px}
+.plan b{display:block;font:700 16px "Plus Jakarta Sans",sans-serif}
+.plan span{color:var(--soft);font-size:14px}
+@media(max-width:520px){.plans{grid-template-columns:minmax(0,1fr)}}
+.shot{margin:0;background:var(--card);border:1px solid var(--line);border-radius:24px;padding:clamp(8px,1.5vw,16px);overflow:hidden}
+.shot img{display:block;width:100%;height:auto;border-radius:14px}
+.shot figcaption{font-size:14px;color:var(--soft);padding:12px 6px 4px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(9em,1fr));gap:16px;margin-bottom:24px}
+.stats div{border-top:2px solid var(--oak);padding-top:10px}
+.stats b{display:block;font:800 clamp(26px,3vw,34px) "Plus Jakarta Sans",sans-serif;white-space:nowrap}
+.stats span{color:var(--soft);font-size:14px}
+.ok{grid-column:1/-1;display:none;background:color-mix(in srgb,var(--sage) 22%,var(--card));border-radius:14px;padding:14px 16px;font-size:15px}
+.ok.show{display:block}
+.err{color:#b4432c;font-size:13px;display:none}
+.f.bad .err{display:block}
+.f.bad input,.f.bad select,.f.bad textarea{border-color:#b4432c}
+@media(max-width:560px){form{grid-template-columns:minmax(0,1fr)}}
+/* faq */
+details{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;list-style:none;padding:20px 40px 20px 0;font:700 18px "Plus Jakarta Sans",sans-serif;position:relative}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;right:6px;top:16px;font-size:26px;color:var(--oak)}
+details[open] summary::after{content:"–"}
+details p{padding:0 0 20px;color:var(--soft);max-width:70ch}
+/* cta + footer */
+.cta{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;background:var(--oak);color:var(--on);border-radius:28px;padding:clamp(28px,4vw,56px)}
+.cta p{margin-top:10px;color:color-mix(in srgb,var(--on) 85%,transparent)}
+.cta .btn{background:var(--on);border-color:var(--on);color:var(--oakd)}
+footer{background:var(--sand);padding:56px max(5vw,16px) 28px}
+.fcols{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(3,minmax(0,1fr));gap:28px;max-width:1240px;margin:0 auto}
+.fcols h4{margin:0 0 12px;font:700 15px "Plus Jakarta Sans",sans-serif}
+.fcols a,.fcols span{display:block;color:var(--soft);text-decoration:none;padding:3px 0;font-size:15px}
+.fcols a:hover{color:var(--ink)}
+.copy{max-width:1240px;margin:36px auto 0;padding-top:18px;border-top:1px solid var(--line);font-size:13px;color:var(--soft);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+@media(max-width:760px){.fcols{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.float{animation:fl 6s ease-in-out infinite}
+@keyframes fl{50%{transform:translateY(-6px)}}
+@media(prefers-reduced-motion:reduce){.float{animation:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header>
+ <div class="bar">
+  <a class="logo" href="#top"><svg width="30" height="30" viewBox="0 0 30 30"><rect width="30" height="30" rx="9" fill="var(--oak)"/><path d="M8 20c3-9 9-12 14-12-1 6-5 12-14 12z" fill="var(--on)"/><path d="M9 21l8-8" stroke="var(--oak)" stroke-width="1.6"/></svg>OaklineLiving</a>
+  <nav class="nav" id="nav">
+   <a href="#how">How it works</a><a href="#services">Services</a><a href="#results">Results</a><a href="#team">Team</a><a href="#hire">Hire staff</a><a href="#careers">Careers</a><a href="#faq">FAQ</a><a href="#contact">Contact</a>
+  </nav>
+  <button class="btn menu" id="menu" aria-expanded="false" aria-controls="nav">Menu</button>
+  <a class="btn pri" href="#contact">Start your store</a>
+ </div>
+</header>
+
+<main id="top">
+<section class="band hero">
+ <div class="wrap">
+  <div class="htop">
+   <h1>Start your Shopify store from zero to first sales.</h1>
+   <div>
+    <p class="lead">We build, launch and grow Shopify stores for complete beginners. Store, products, ads and email, done for you by a UK-registered team.</p>
+    <div class="ctas"><a class="btn pri" href="#contact">Start your store</a><a class="btn" href="#careers">Join our team</a></div>
+   </div>
+  </div>
+  <div class="trust"><span>Registered in England &amp; Wales</span><span>Onboarding in under 7 days</span><span>Full access to your ad accounts</span><span>Reply within 24 hours</span></div>
+  <div class="stage" aria-label="Illustration of a new Shopify store with ad and email cards">
+   <svg viewBox="0 0 1160 430" role="img">
+    <defs>
+     <linearGradient id="g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e6cfa9"/><stop offset="1" stop-color="#c99b64"/></linearGradient>
+     <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b9c3a6"/><stop offset="1" stop-color="#8c9a78"/></linearGradient>
+    </defs>
+    <!-- browser -->
+    <rect x="190" y="18" width="780" height="420" rx="18" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+    <rect x="190" y="18" width="780" height="44" rx="18" fill="var(--bg)"/><rect x="190" y="44" width="780" height="18" fill="var(--bg)"/>
+    <circle cx="216" cy="40" r="6" fill="#d98c6a"/><circle cx="236" cy="40" r="6" fill="#e3bf6c"/><circle cx="256" cy="40" r="6" fill="#9fb08a"/>
+    <rect x="300" y="29" width="360" height="22" rx="11" fill="var(--sand)"/><text x="318" y="45" font-family="Inter" font-size="13" fill="var(--soft)">yourbrand.myshopify.com</text>
+    <!-- store nav -->
+    <text x="226" y="98" font-family="Plus Jakarta Sans" font-weight="800" font-size="20" fill="var(--ink)">Your Brand</text>
+    <g font-family="Inter" font-size="13" fill="var(--soft)"><text x="620" y="96">Shop</text><text x="680" y="96">About</text><text x="748" y="96">Contact</text></g>
+    <rect x="840" y="80" width="100" height="28" rx="14" fill="var(--ink)"/><text x="890" y="99" text-anchor="middle" font-family="Inter" font-weight="600" font-size="12" fill="var(--bg)">Cart (2)</text>
+    <!-- banner -->
+    <rect x="226" y="124" width="708" height="130" rx="14" fill="url(#g1)"/>
+    <text x="256" y="178" font-family="Plus Jakarta Sans" font-weight="800" font-size="28" fill="#2b2118">New season collection</text>
+    <rect x="256" y="200" width="120" height="34" rx="17" fill="#2b2118"/><text x="316" y="222" text-anchor="middle" font-family="Inter" font-weight="600" font-size="13" fill="#f7f1e6">Shop now</text>
+    <circle cx="820" cy="190" r="52" fill="#f3e4c8"/><rect x="790" y="160" width="60" height="70" rx="12" fill="#8a5a2b"/><rect x="800" y="150" width="40" height="16" rx="6" fill="#6e4520"/>
+    <!-- products -->
+    <g id="prod">
+     <rect width="164" height="150" rx="12" fill="var(--sand)"/>
+     <rect x="52" y="28" width="60" height="62" rx="12" fill="url(#g2)"/>
+     <rect x="14" y="108" width="100" height="10" rx="5" fill="var(--soft)" opacity=".5"/>
+     <rect x="14" y="126" width="54" height="10" rx="5" fill="var(--oak)"/>
+    </g>
+    <use href="#prod" x="226" y="274"/><use href="#prod" x="408" y="274"/><use href="#prod" x="590" y="274"/><use href="#prod" x="772" y="274"/>
+    <!-- ad card -->
+    <g class="float">
+     <rect x="16" y="130" width="230" height="190" rx="16" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+     <circle cx="44" cy="160" r="13" fill="var(--oak)"/><text x="66" y="157" font-family="Inter" font-weight="600" font-size="13" fill="var(--ink)">Your Brand</text><text x="66" y="173" font-family="Inter" font-size="11" fill="var(--soft)">Sponsored</text>
+     <rect x="30" y="186" width="202" height="88" rx="10" fill="url(#g1)"/><rect x="104" y="204" width="52" height="54" rx="10" fill="#8a5a2b"/>
+     <rect x="30" y="284" width="96" height="24" rx="12" fill="var(--ink)"/><text x="78" y="300" text-anchor="middle" font-family="Inter" font-weight="600" font-size="11" fill="var(--bg)">Shop now</text>
+     <text x="226" y="301" text-anchor="end" font-family="Inter" font-size="11" fill="var(--soft)">Meta · TikTok</text>
+    </g>
+    <!-- email card -->
+    <g class="float" style="animation-delay:-3s">
+     <rect x="914" y="150" width="230" height="170" rx="16" fill="var(--card)" stroke="var(--line)" stroke-width="2"/>
+     <text x="934" y="180" font-family="Plus Jakarta Sans" font-weight="700" font-size="14" fill="var(--ink)">Email flows</text>
+     <g font-family="Inter" font-size="12" fill="var(--ink)">
+      <rect x="934" y="196" width="190" height="30" rx="10" fill="var(--sand)"/><circle cx="950" cy="211" r="5" fill="var(--sage)"/><text x="964" y="215">Welcome series</text>
+      <rect x="934" y="234" width="190" height="30" rx="10" fill="var(--sand)"/><circle cx="950" cy="249" r="5" fill="var(--sage)"/><text x="964" y="253">Abandoned cart</text>
+      <rect x="934" y="272" width="190" height="30" rx="10" fill="var(--sand)"/><circle cx="950" cy="287" r="5" fill="var(--oak)"/><text x="964" y="291">Weekly campaign</text>
+     </g>
+    </g>
+   </svg>
+  </div>
+ </div>
+</section>
+
+<section class="band sandb" id="how">
+ <div class="wrap">
+  <div class="head"><h2>From first call to first sale</h2><p class="lead">A clear path for beginners. You always know what happens next and who is doing it.</p></div>
+  <div class="steps">
+   <div><b>Step one</b><h3>Free strategy call</h3><p>We talk about what you want to sell, your budget and your goals, then agree a plan.</p></div>
+   <div><b>Step two</b><h3>Store and products</h3><p>We research winning products and build your Shopify store, ready to take payments.</p></div>
+   <div><b>Step three</b><h3>Launch ads</h3><p>We create your ad creatives and launch campaigns on Facebook, Instagram and TikTok.</p></div>
+   <div><b>Step four</b><h3>Grow and scale</h3><p>Email flows bring buyers back, and we scale the ads that work using real data.</p></div>
+  </div>
+ </div>
+</section>
+
+<section class="band" id="services">
+ <div class="wrap">
+  <div class="head"><h2>Everything your store needs</h2><p class="lead">Pick a single service or let us handle the whole launch for you.</p></div>
+  <div class="grid3" id="svcs"></div>
+ </div>
+</section>
+
+<section class="band inkb">
+ <div class="wrap">
+  <div class="head"><h2>Why beginners choose Oakline</h2><p class="lead">We built Oakline to help everyday people launch real Shopify businesses with no experience and no existing revenue.</p></div>
+  <div class="why">
+   <div><h3>UK registered</h3><p>A real limited company registered in England &amp; Wales.</p></div>
+   <div><h3>Data-driven</h3><p>Every decision on products and ads is based on numbers, not guesses.</p></div>
+   <div><h3>You own it all</h3><p>Full access to your store, ad accounts and analytics from day one.</p></div>
+   <div><h3>Fast start</h3><p>Onboarding is done in under 7 days, so you launch sooner.</p></div>
+  </div>
+ </div>
+</section>
+
+<section class="band" id="results">
+ <div class="wrap">
+  <div class="head"><h2>Real results from a store we run</h2><p class="lead">A live Shopify dashboard from 1 May to 5 June 2025, compared with the previous period.</p></div>
+  <div class="stats">
+   <div><b>£2,449.99</b><span>Total sales, up 45%</span></div>
+   <div><b>70</b><span>Orders, up 31%</span></div>
+   <div><b>1,369</b><span>Sessions, up 28%</span></div>
+   <div><b>5.11%</b><span>Conversion rate, up 18%</span></div>
+  </div>
+  <figure class="shot"><img src="results.webp" alt="Shopify dashboard showing 1,369 sessions, £2,449.99 total sales, 70 orders and 5.11% conversion rate from 1 May to 5 June 2025" loading="lazy"><figcaption>Shopify admin screenshot, 1 May – 5 June 2025.</figcaption></figure>
+ </div>
+</section>
+
+<section class="band sandb" id="team">
+ <div class="wrap">
+  <div class="head"><h2>Meet the team</h2><p class="lead">The people who build, launch and grow your store.</p></div>
+  <div class="team" id="teamg"></div>
+  <p class="note">Sample team profiles for the demo. Send us real names, roles and photos to replace them.</p>
+ </div>
+</section>
+
+<section class="band sandb" id="hire">
+ <div class="wrap split">
+  <div>
+   <h2>Hire a dedicated employee</h2>
+   <p class="lead" style="margin-top:16px">Need someone on your team full time? Hire a trained Oakline specialist who works only on your store, managed and supported by us.</p>
+   <div class="roles" id="talent"></div>
+   <div class="plans">
+    <div class="plan"><b>Part time</b><span>20 hours a week</span></div>
+    <div class="plan"><b>Full time</b><span>40 hours a week</span></div>
+    <div class="plan"><b>Per project</b><span>Fixed scope and deadline</span></div>
+   </div>
+   <p class="note">Sample roles for the demo. Prices are agreed on a call.</p>
+  </div>
+  <form id="hiref" name="hire-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+   <input type="hidden" name="form-name" value="hire-request"><p hidden><label>Leave empty <input name="bot-field"></label></p>
+   <h3>Request an employee</h3>
+   <div class="f"><label for="h-name">Your name</label><input id="h-name" name="h-name" required autocomplete="name"><span class="err">Please enter your name.</span></div>
+   <div class="f"><label for="h-co">Company / store name</label><input id="h-co" name="h-co" autocomplete="organization"></div>
+   <div class="f"><label for="h-email">Email</label><input id="h-email" name="h-email" type="email" required autocomplete="email"><span class="err">Please enter a valid email.</span></div>
+   <div class="f"><label for="h-phone">Phone or WhatsApp</label><input id="h-phone" name="h-phone" type="tel" autocomplete="tel"></div>
+   <div class="f"><label for="h-role">Who do you need?</label><select id="h-role" name="h-role" required><option value="">Choose a role</option></select><span class="err">Please choose a role.</span></div>
+   <div class="f"><label for="h-type">Hire type</label><select id="h-type" name="h-type"><option>Part time</option><option>Full time</option><option>Per project</option></select></div>
+   <div class="f"><label for="h-start">Start date</label><input id="h-start" name="h-start" type="date"></div>
+   <div class="f"><label for="h-num">Number of people</label><input id="h-num" name="h-num" type="number" min="1" value="1"></div>
+   <div class="f w"><label for="h-msg">Tell us about the work</label><textarea id="h-msg" name="h-msg" placeholder="Tasks, tools you use, working hours"></textarea></div>
+   <button class="btn pri" type="submit">Send hiring request</button>
+   <div class="ok" role="status"></div>
+  </form>
+ </div>
+</section>
+
+<section class="band" id="careers">
+ <div class="wrap split">
+  <div>
+   <h2>Work with us</h2>
+   <p class="lead" style="margin-top:16px">We are growing and looking for people who love ecommerce. Remote-friendly roles, flexible hours and real client work from week one.</p>
+   <div class="roles" id="roles"></div>
+   <p class="note">Sample open roles for the demo.</p>
+  </div>
+  <form id="jobf" name="job-application" method="POST" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data" novalidate>
+   <input type="hidden" name="form-name" value="job-application"><p hidden><label>Leave empty <input name="bot-field"></label></p>
+   <h3>Apply for a role</h3>
+   <div class="f"><label for="j-name">Full name</label><input id="j-name" name="name" required autocomplete="name"><span class="err">Please enter your name.</span></div>
+   <div class="f"><label for="j-email">Email</label><input id="j-email" name="email" type="email" required autocomplete="email"><span class="err">Please enter a valid email.</span></div>
+   <div class="f"><label for="j-phone">Phone or WhatsApp</label><input id="j-phone" name="phone" type="tel" autocomplete="tel"></div>
+   <div class="f"><label for="j-role">Role</label><select id="j-role" name="role" required><option value="">Choose a role</option></select><span class="err">Please choose a role.</span></div>
+   <div class="f"><label for="j-loc">Country / city</label><input id="j-loc" name="location"></div>
+   <div class="f"><label for="j-exp">Experience</label><select id="j-exp" name="experience"><option>Less than 1 year</option><option>1–2 years</option><option>3–5 years</option><option>5+ years</option></select></div>
+   <div class="f w"><label for="j-link">Portfolio or LinkedIn link</label><input id="j-link" name="link" type="url" placeholder="https://"></div>
+   <div class="f w"><label for="j-cv">CV (PDF or Word)</label><input id="j-cv" name="cv" type="file" accept=".pdf,.doc,.docx"></div>
+   <div class="f w"><label for="j-msg">Why do you want to join Oakline?</label><textarea id="j-msg" name="message"></textarea></div>
+   <label class="chk"><input type="checkbox" id="j-ok" name="consent" value="yes" required>I agree that OaklineLiving LTD may store my details to review my application.</label>
+   <button class="btn pri" type="submit">Send application</button>
+   <div class="ok" role="status"></div>
+  </form>
+ </div>
+</section>
+
+<section class="band sandb" id="faq">
+ <div class="wrap split">
+  <div><h2>Before you start</h2><p class="lead" style="margin-top:16px">Common questions from new store owners. Still unsure? Message us on WhatsApp.</p></div>
+  <div id="faqs"></div>
+ </div>
+</section>
+
+<section class="band" id="contact">
+ <div class="wrap split">
+  <div>
+   <h2>Ready to start your store?</h2>
+   <p class="lead" style="margin-top:16px">Tell us what you want to sell and your budget. We reply within 24 hours with a plan.</p>
+   <div class="roles" id="contacts"></div>
+  </div>
+  <form id="startf" name="start-store" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+   <input type="hidden" name="form-name" value="start-store"><p hidden><label>Leave empty <input name="bot-field"></label></p>
+   <h3>Start your store</h3>
+   <div class="f"><label for="s-name">Full name</label><input id="s-name" name="s-name" required autocomplete="name"><span class="err">Please enter your name.</span></div>
+   <div class="f"><label for="s-email">Email</label><input id="s-email" name="s-email" type="email" required autocomplete="email"><span class="err">Please enter a valid email.</span></div>
+   <div class="f"><label for="s-phone">Phone</label><input id="s-phone" name="s-phone" type="tel" autocomplete="tel"></div>
+   <div class="f"><label for="s-store">Do you have a store?</label><select id="s-store" name="s-store"><option>No, starting from zero</option><option>Yes, I have a Shopify store</option><option>Yes, on another platform</option></select></div>
+   <div class="f w"><label for="s-sell">What do you want to sell?</label><input id="s-sell" name="s-sell" placeholder="e.g. home décor, pet products, not sure yet"></div>
+   <div class="f w"><label for="s-budget">Monthly budget</label><select id="s-budget" name="s-budget"><option>Under £500</option><option>£500 – £1,000</option><option>£1,000 – £3,000</option><option>£3,000+</option></select></div>
+   <button class="btn pri" type="submit">Send enquiry</button>
+   <div class="ok" role="status"></div>
+  </form>
+ </div>
+ <div class="wrap" style="margin-top:clamp(48px,6vw,88px)">
+  <div class="cta"><div><h2>Your store could be live next week.</h2><p>Onboarding takes under 7 days. Book your free call today.</p></div><a class="btn wa" href="https://wa.me/393509186568">Message us on WhatsApp</a></div>
+ </div>
+</section>
+</main>
+
+<footer>
+ <div class="fcols">
+  <div><a class="logo" href="#top" style="color:var(--ink);padding:0">OaklineLiving LTD</a><span style="margin-top:10px">Ecommerce growth for Shopify beginners. Registered in England &amp; Wales.</span><span id="freg"></span></div>
+  <div><h4>Services</h4><a href="#services">Store setup</a><a href="#services">Product research</a><a href="#services">Paid social ads</a><a href="#services">Email marketing</a></div>
+  <div><h4>Company</h4><a href="#how">How it works</a><a href="#team">Team</a><a href="#hire">Hire an employee</a><a href="#careers">Careers</a><a href="#faq">FAQ</a></div>
+  <div><h4>Contact</h4><div id="fcontact"></div></div>
+ </div>
+ <div class="copy"><span>© 2026 OaklineLiving LTD. All rights reserved.</span><span>oaklinelivingltd.com</span></div>
+</footer>
+
+<script src="site.js"></script>
+</body>
+</html>

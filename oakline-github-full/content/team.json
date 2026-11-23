@@ -1,0 +1,8 @@
+{
+  "members": [
+    { "name": "Daniel Oak", "role": "Founder & CEO", "bio": "Leads strategy and makes sure every client store has a clear plan to profit.", "photo": "" },
+    { "name": "Sara Bennett", "role": "Head of Paid Ads", "bio": "Runs Meta and TikTok campaigns and scales the ads that bring sales.", "photo": "" },
+    { "name": "Marco Rossi", "role": "Shopify Developer", "bio": "Builds fast, clean stores and sets up themes, apps and payments.", "photo": "" },
+    { "name": "Aisha Khan", "role": "Creative Lead", "bio": "Designs brands, product images and ad creatives that stop the scroll.", "photo": "" }
+  ]
+}
