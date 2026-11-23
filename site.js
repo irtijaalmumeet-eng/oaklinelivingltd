@@ -145,3 +145,24 @@ wire('startf','We will reply within 24 hours with a plan for your store.','store
  addEventListener('popstate',()=>{const id=location.hash.slice(1);if(id)go(id,false);else{stop();scrollTo(0,0)}});
  addEventListener('load',()=>{const id=location.hash.slice(1);if(id)go(id,false)});
 })();
+
+// Phone: sticky action bar + team carousel dots
+(()=>{
+ const bar=document.createElement('div');bar.className='mbar';
+ const wa=()=>document.querySelector('a[href^="https://wa.me/"]')?.getAttribute('href')||'#contact';
+ bar.innerHTML='<a class="btn mwa" href="#contact">WhatsApp us</a><a class="btn pri" href="#contact">Start your store</a>';
+ const w=bar.querySelector('.mwa');w.target='_blank';w.rel='noopener';
+ const setWa=()=>{w.href=wa()};setWa();setTimeout(setWa,1500);
+ document.body.append(bar);
+ const hideFor=['contact','careers'].map(id=>document.getElementById(id)).filter(Boolean);
+ const vis=new Set();
+ if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>{es.forEach(e=>e.isIntersecting?vis.add(e.target):vis.delete(e.target));bar.classList.toggle('hide',vis.size>0)},{rootMargin:'0px 0px -30% 0px'});hideFor.forEach(s=>io.observe(s));const f=document.querySelector('footer');if(f){hideFor.push(f);io.observe(f)}}
+ document.addEventListener('focusin',e=>{if(e.target.matches('input,select,textarea'))bar.classList.add('hide')});
+ document.addEventListener('focusout',()=>{if(!vis.size)bar.classList.remove('hide')});
+ const grid=document.getElementById('teamg');if(!grid)return;
+ const dots=document.createElement('div');dots.className='tdots';dots.setAttribute('aria-hidden','true');grid.after(dots);
+ const build=()=>{const n=grid.querySelectorAll('.mem').length;if(dots.childElementCount!==n)dots.innerHTML='<i></i>'.repeat(n);mark()};
+ const mark=()=>{const cards=[...grid.querySelectorAll('.mem')];if(!cards.length)return;const x=grid.scrollLeft;let k=0,b=1e9;cards.forEach((c,i)=>{const d=Math.abs(c.offsetLeft-grid.offsetLeft-x-parseFloat(getComputedStyle(grid).paddingLeft)+0);if(d<b){b=d;k=i}});if(grid.scrollLeft+grid.clientWidth>=grid.scrollWidth-4)k=cards.length-1;[...dots.children].forEach((d,i)=>d.classList.toggle('on',i===k))};
+ grid.addEventListener('scroll',()=>requestAnimationFrame(mark),{passive:true});
+ new MutationObserver(build).observe(grid,{childList:true});build();
+})();
