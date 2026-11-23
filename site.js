@@ -53,7 +53,7 @@ function renderJobs(j){
 function renderSettings(s){
  const rows=[];
  if(s.whatsapp)rows.push(['WhatsApp',s.whatsapp,`https://wa.me/${digits(s.whatsapp)}`,'Chat now']);
- if(s.phone)rows.push(['Business phone',s.phone,`tel:+${digits(s.phone)}`,'Call us']);
+ if(s.phone)rows.push(['WhatsApp (UK)',s.phone,`https://wa.me/${digits(s.phone)}`,'Chat now']);
  if(s.email)rows.push(['Email',s.email,`mailto:${s.email}`,'Email us']);
  const cards=rows.map(r=>`<div class="role"><div><b>${r[0]}</b><br><span style="overflow-wrap:anywhere">${esc(r[1])}</span></div><a class="btn" href="${esc(r[2])}">${r[3]}</a></div>`).join('');
  if($('ccontacts'))$('ccontacts').innerHTML=cards;
