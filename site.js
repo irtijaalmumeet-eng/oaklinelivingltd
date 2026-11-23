@@ -43,7 +43,10 @@ function renderTeam(t){
  $('teamg').innerHTML=list.map((x,i)=>{const c=pal[i%4];
   const pic=x.photo?`<img src="${esc(x.photo)}" alt="${esc(x.name)}" loading="lazy" style="display:block;width:100%;aspect-ratio:5/4;object-fit:cover;background:var(--sand)">`
   :`<svg viewBox="0 0 200 160" aria-hidden="true"><circle cx="160" cy="30" r="46" fill="${c[0]}" opacity=".35"/><path d="M40 160c0-38 27-58 60-58s60 20 60 58z" fill="${c[0]}"/><circle cx="100" cy="70" r="30" fill="#e8c9a4"/><path d="M70 66c0-22 14-32 30-32s30 10 30 30c-10-8-22-10-30-10s-20 4-30 12z" fill="${c[1]}"/></svg>`;
-  return `<article class="mem">${pic}<div><h3>${esc(x.name)}</h3><small>${esc(x.role)}</small><p>${esc(x.bio)}</p></div></article>`}).join('');
+  const wa=x.whatsapp||settings.whatsapp,em=x.email||settings.email;
+  const links=[wa?`<a class="cbtn wa" href="https://wa.me/${digits(wa)}" target="_blank" rel="noopener" aria-label="WhatsApp ${esc(x.name)}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z"/><path d="M9 8.5c0 3.6 2.9 6.5 6.5 6.5l1-1.6-2-1-1 .8a4 4 0 0 1-2.2-2.2l.8-1-1-2z"/></svg><span>${esc(wa)}</span></a>`:'',
+   em?`<a class="cbtn" href="mailto:${esc(em)}" aria-label="Email ${esc(x.name)}"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M3 7l9 6 9-6"/></svg><span>${esc(em)}</span></a>`:''].join('');
+  return `<article class="mem">${pic}<div><h3>${esc(x.name)}</h3><small>${esc(x.role)}</small><p>${esc(x.bio)}</p>${links?`<div class="mcon">${links}</div>`:''}</div></article>`}).join('');
  $('team').hidden=!list.length;
 }
 const jsel=$('j-role'),hsel=$('h-role');
@@ -76,7 +79,7 @@ let settings=fallback.settings;
 const load=n=>fetch(`content/${n}.json`,{cache:'no-cache'}).then(r=>r.ok?r.json():fallback[n]).catch(()=>fallback[n]);
 renderSettings(settings);
 Promise.all(['team','jobs','hire','settings'].map(load)).then(([t,j,h,s])=>{
- renderTeam(t);renderJobs(j);renderHire(h);settings=Object.assign({},fallback.settings,s);renderSettings(settings);
+ settings=Object.assign({},fallback.settings,s);renderSettings(settings);renderTeam(t);renderJobs(j);renderHire(h);
 });
 
 // forms -> Netlify Forms
