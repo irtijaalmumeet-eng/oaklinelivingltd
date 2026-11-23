@@ -113,3 +113,35 @@ function wire(id,msg,key){
 wire('jobf','Your application has been received. We review every application and reply within 5 working days.','job');
 wire('startf','We will reply within 24 hours with a plan for your store.','store');
 }
+
+// Smooth anchor scrolling that follows layout changes (lazy images, loaded content),
+// so menu links always land exactly on their section.
+(()=>{
+ const reduce=matchMedia('(prefers-reduced-motion: reduce)');
+ const off=()=>(document.querySelector('header')?.offsetHeight||64)+12;
+ let anim=0;
+ const stop=()=>cancelAnimationFrame(anim);
+ function go(id,push){
+  const el=document.getElementById(id);if(!el)return false;stop();
+  const target=()=>Math.max(0,Math.min(el.getBoundingClientRect().top+scrollY-off(),document.documentElement.scrollHeight-innerHeight));
+  const settle=n=>{const d=target()-scrollY;if(Math.abs(d)>1&&n<30){scrollTo(0,scrollY+d)}if(n<30)anim=requestAnimationFrame(()=>settle(n+1))};
+  if(reduce.matches){scrollTo(0,target());settle(0)}
+  else{
+   const start=scrollY,t0=performance.now(),dur=Math.min(1000,Math.max(450,Math.abs(target()-start)*.3));
+   const ease=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
+   const step=now=>{const p=Math.min(1,(now-t0)/dur);scrollTo(0,start+(target()-start)*ease(p));anim=requestAnimationFrame(p<1?step:()=>settle(0))};
+   anim=requestAnimationFrame(step);
+  }
+  if(push&&location.hash!=='#'+id)history.pushState(null,'','#'+id);
+  return true;
+ }
+ document.addEventListener('click',e=>{
+  const a=e.target.closest('a[href^="#"]');
+  if(!a||e.defaultPrevented||e.button||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;
+  const id=decodeURIComponent(a.getAttribute('href').slice(1));
+  if(id&&go(id,true))e.preventDefault();
+ });
+ ['wheel','touchstart','keydown'].forEach(ev=>addEventListener(ev,stop,{passive:true}));
+ addEventListener('popstate',()=>{const id=location.hash.slice(1);if(id)go(id,false);else{stop();scrollTo(0,0)}});
+ addEventListener('load',()=>{const id=location.hash.slice(1);if(id)go(id,false)});
+})();
