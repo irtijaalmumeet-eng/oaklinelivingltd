@@ -47,19 +47,6 @@ collections:
               - { name: title, label: Role title, widget: string }
               - { name: type, label: "Type (e.g. Remote · Full time)", widget: string }
 
-      - name: hire
-        label: Hire an employee roles
-        file: content/hire.json
-        fields:
-          - name: roles
-            label: Roles businesses can hire
-            label_singular: Role
-            widget: list
-            summary: "{{fields.title}}"
-            fields:
-              - { name: title, label: Role title, widget: string }
-              - { name: desc, label: Short description, widget: string }
-
       - name: settings
         label: Contact details
         file: content/settings.json
