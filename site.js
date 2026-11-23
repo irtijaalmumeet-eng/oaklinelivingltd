@@ -167,3 +167,19 @@ wire('startf','We will reply within 24 hours with a plan for your store.','store
  grid.addEventListener('scroll',()=>requestAnimationFrame(mark),{passive:true});
  new MutationObserver(build).observe(grid,{childList:true});build();
 })();
+
+// Entrance + scroll-reveal animations, header shadow and counting stats
+(()=>{
+ const header=document.querySelector('header');
+ const onScroll=()=>header&&header.classList.toggle('scrolled',scrollY>8);
+ addEventListener('scroll',onScroll,{passive:true});onScroll();
+ if(matchMedia('(prefers-reduced-motion: reduce)').matches||!('IntersectionObserver' in window))return;
+ document.documentElement.classList.add('anim');
+ const count=el=>{const b=el.querySelector('b');if(!b||b.dataset.counted)return;b.dataset.counted=1;const txt=b.textContent;const m=txt.match(/[0-9][0-9,]*(\.[0-9]+)?/);if(!m)return;const num=parseFloat(m[0].replace(/,/g,''));const dec=m[1]?m[1].length-1:0;const pre=txt.slice(0,m.index),post=txt.slice(m.index+m[0].length);const fmt=n=>pre+n.toLocaleString('en-GB',{minimumFractionDigits:dec,maximumFractionDigits:dec})+post;const t0=performance.now(),D=1400;const step=now=>{const p=Math.min(1,(now-t0)/D);b.textContent=p<1?fmt(num*(1-Math.pow(1-p,3))):txt;if(p<1)requestAnimationFrame(step)};b.textContent=fmt(0);requestAnimationFrame(step)};
+ const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;e.target.classList.add('in');io.unobserve(e.target);if(e.target.matches('.stats>div'))count(e.target)}),{rootMargin:'0px 0px -8% 0px',threshold:.08});
+ const sel='.head,.steps>div,.svc,.why>div,.stats>div,.shot,.team,.tdots,.roles>.role,.plans>.plan,form,#faqs details,.cta,.split>div>h2,.split>div>.lead,.fcols>div';
+ const seen=new WeakSet();
+ const scan=()=>{const groups=new Map();document.querySelectorAll(sel).forEach(el=>{if(seen.has(el)||el.closest('.hero'))return;seen.add(el);el.classList.add('rv');const p=el.parentElement;const i=groups.get(p)||0;groups.set(p,i+1);el.style.setProperty('--d',Math.min(i,6)*80+'ms');io.observe(el)})};
+ scan();
+ let q=0;new MutationObserver(()=>{if(!q)q=requestAnimationFrame(()=>{q=0;scan()})}).observe(document.body,{childList:true,subtree:true});
+})();
