@@ -244,7 +244,7 @@ Promise.all([get('team'),get('settings')]).then(([t,s])=>{
  if(i<0){v.innerHTML=`<a class="back" href="./">← Back to the team</a><p class="missing">We couldn't find this team member. They may have changed role or left the company.</p>`;return}
  const x=list[i],url=location.origin+location.pathname.replace(/index\.html$/,'')+'?m='+T.slug(x.name);
  document.title=`${x.name} · ${x.role} · OaklineLiving LTD`;
- const email=x.email||s.email,phone=x.phone||s.phone,wa=x.whatsapp||s.whatsapp;
+ const email=x.email||s.email,phone=x.phone,wa=x.whatsapp;
  const btns=[];
  if(email)btns.push(`<a class="btn pri" href="mailto:${esc(email)}">✉ ${esc(email)}</a>`);
  if(phone)btns.push(`<a class="btn" href="tel:+${digits(phone)}">☎ ${esc(phone)}</a>`);
