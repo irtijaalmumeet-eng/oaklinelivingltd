@@ -76,29 +76,21 @@ Promise.all(['team','jobs','hire','settings'].map(load)).then(([t,j,h,s])=>{
  renderTeam(t);renderJobs(j);renderHire(h);settings=Object.assign({},fallback.settings,s);renderSettings(settings);
 });
 
-// forms -> Netlify Forms
-function wire(id,msg){
+// forms -> FormSubmit (emails each submission, CVs attached)
+function wire(id,msg,key){
  const f=$(id),ok=f.querySelector('.ok'),btn=f.querySelector('button[type=submit]');
- f.addEventListener('submit',async e=>{
-  e.preventDefault();let good=true;
+ if(new URLSearchParams(location.search).get('sent')===key){ok.classList.add('show');ok.textContent='Thank you! '+msg}
+ f.addEventListener('submit',e=>{
+  let good=true;
   f.querySelectorAll('[required]').forEach(el=>{const w=el.closest('.f');const v=el.type==='checkbox'?el.checked:el.checkValidity()&&el.value.trim()!=='';if(w)w.classList.toggle('bad',!v);if(!v)good=false});
-  ok.classList.add('show');
-  if(!good){ok.textContent='Please fill in the highlighted fields.';return}
-  btn.disabled=true;ok.textContent='Sending…';
-  const fd=new FormData(f);
-  try{
-   const multipart=f.enctype==='multipart/form-data';
-   const r=await fetch('/',{method:'POST',body:multipart?fd:new URLSearchParams(fd),headers:multipart?{}:{'Content-Type':'application/x-www-form-urlencoded'}});
-   if(!r.ok)throw 0;
-   const n=(fd.get(f.querySelector('input:not([type=hidden]):not([name=bot-field])').name)||'').toString().trim().split(' ')[0];
-   ok.textContent=`Thanks ${n}! ${msg}`;f.reset();
-  }catch(_){
-   ok.textContent=`Sorry, that didn't send. Please email us at ${settings.email} or message us on WhatsApp.`;
-  }
-  btn.disabled=false;
+  const cv=f.querySelector('input[type=file]');
+  if(cv&&cv.files[0]&&cv.files[0].size>9.5*1024*1024){good=false;ok.classList.add('show');ok.textContent='Your CV is too large. Please upload a file under 10 MB.';e.preventDefault();return}
+  if(!good){e.preventDefault();ok.classList.add('show');ok.textContent='Please fill in the highlighted fields.';return}
+  if(settings.email)f.action='https://formsubmit.co/'+settings.email;
+  btn.disabled=true;ok.classList.add('show');ok.textContent='Sending…';
  });
 }
-wire('hiref','Your hiring request is in. We will contact you within 24 hours to discuss candidates.');
-wire('jobf','Your application has been received. We review every application and reply within 5 working days.');
-wire('startf','We will reply within 24 hours with a plan for your store.');
+wire('hiref','Your hiring request is in. We will contact you within 24 hours to discuss candidates.','hire');
+wire('jobf','Your application has been received. We review every application and reply within 5 working days.','job');
+wire('startf','We will reply within 24 hours with a plan for your store.','store');
 }
