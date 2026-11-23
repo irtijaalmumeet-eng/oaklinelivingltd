@@ -167,7 +167,7 @@ footer{background:var(--sand);padding:56px max(5vw,16px) 28px}
  <div class="bar">
   <a class="logo" href="#top"><svg width="30" height="30" viewBox="0 0 30 30"><rect width="30" height="30" rx="9" fill="var(--oak)"/><path d="M8 20c3-9 9-12 14-12-1 6-5 12-14 12z" fill="var(--on)"/><path d="M9 21l8-8" stroke="var(--oak)" stroke-width="1.6"/></svg>OaklineLiving</a>
   <nav class="nav" id="nav">
-   <a href="#how">How it works</a><a href="#services">Services</a><a href="#results">Results</a><a href="#team">Team</a><a href="#hire">Hire staff</a><a href="#careers">Careers</a><a href="#faq">FAQ</a><a href="#contact">Contact</a>
+   <a href="#how">How it works</a><a href="#services">Services</a><a href="#results">Results</a><a href="#team">Team</a><a href="#careers">Careers</a><a href="#faq">FAQ</a><a href="#contact">Contact</a>
   </nav>
   <button class="btn menu" id="menu" aria-expanded="false" aria-controls="nav">Menu</button>
   <a class="btn pri" href="#contact">Start your store</a>
@@ -288,44 +288,14 @@ footer{background:var(--sand);padding:56px max(5vw,16px) 28px}
  </div>
 </section>
 
-<section class="band sandb" id="hire">
- <div class="wrap split">
-  <div>
-   <h2>Hire a dedicated employee</h2>
-   <p class="lead" style="margin-top:16px">Need someone on your team full time? Hire a trained Oakline specialist who works only on your store, managed and supported by us.</p>
-   <div class="roles" id="talent"></div>
-   <div class="plans">
-    <div class="plan"><b>Part time</b><span>20 hours a week</span></div>
-    <div class="plan"><b>Full time</b><span>40 hours a week</span></div>
-    <div class="plan"><b>Per project</b><span>Fixed scope and deadline</span></div>
-   </div>
-   <p class="note">Sample roles for the demo. Prices are agreed on a call.</p>
-  </div>
-  <form id="hiref" name="hire-request" action="https://formsubmit.co/irtijaalmumeet@oaklinelivingltd.com" method="POST" novalidate>
-   <input type="hidden" name="_subject" value="New hiring request – Oakline website"><input type="hidden" name="_next" value="https://oaklinelivingltd.com/?sent=hire#hire"><input type="hidden" name="_template" value="table"><input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
-   <h3>Request an employee</h3>
-   <div class="f"><label for="h-name">Your name</label><input id="h-name" name="h-name" required autocomplete="name"><span class="err">Please enter your name.</span></div>
-   <div class="f"><label for="h-co">Company / store name</label><input id="h-co" name="h-co" autocomplete="organization"></div>
-   <div class="f"><label for="h-email">Email</label><input id="h-email" name="h-email" type="email" required autocomplete="email"><span class="err">Please enter a valid email.</span></div>
-   <div class="f"><label for="h-phone">Phone or WhatsApp</label><input id="h-phone" name="h-phone" type="tel" autocomplete="tel"></div>
-   <div class="f"><label for="h-role">Who do you need?</label><select id="h-role" name="h-role" required><option value="">Choose a role</option></select><span class="err">Please choose a role.</span></div>
-   <div class="f"><label for="h-type">Hire type</label><select id="h-type" name="h-type"><option>Part time</option><option>Full time</option><option>Per project</option></select></div>
-   <div class="f"><label for="h-start">Start date</label><input id="h-start" name="h-start" type="date"></div>
-   <div class="f"><label for="h-num">Number of people</label><input id="h-num" name="h-num" type="number" min="1" value="1"></div>
-   <div class="f w"><label for="h-msg">Tell us about the work</label><textarea id="h-msg" name="h-msg" placeholder="Tasks, tools you use, working hours"></textarea></div>
-   <button class="btn pri" type="submit">Send hiring request</button>
-   <div class="ok" role="status"></div>
-  </form>
- </div>
-</section>
-
 <section class="band" id="careers">
  <div class="wrap split">
   <div>
    <h2>Work with us</h2>
    <p class="lead" style="margin-top:16px">We are growing and looking for people who love ecommerce. Remote-friendly roles, flexible hours and real client work from week one.</p>
    <div class="roles" id="roles"></div>
-   <p class="note">Sample open roles for the demo.</p>
+   <h3 style="margin-top:32px;font-size:20px">Questions about a role? Contact us</h3>
+   <div class="roles" id="ccontacts" style="margin-top:14px"></div>
   </div>
   <form id="jobf" name="job-application" action="https://formsubmit.co/irtijaalmumeet@oaklinelivingltd.com" method="POST" enctype="multipart/form-data" novalidate>
    <input type="hidden" name="_subject" value="New job application – Oakline website"><input type="hidden" name="_next" value="https://oaklinelivingltd.com/?sent=job#careers"><input type="hidden" name="_template" value="table"><input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
@@ -383,13 +353,13 @@ footer{background:var(--sand);padding:56px max(5vw,16px) 28px}
  <div class="fcols">
   <div><a class="logo" href="#top" style="color:var(--ink);padding:0">OaklineLiving LTD</a><span style="margin-top:10px">Ecommerce growth for Shopify beginners. Registered in England &amp; Wales.</span><span id="freg"></span></div>
   <div><h4>Services</h4><a href="#services">Store setup</a><a href="#services">Product research</a><a href="#services">Paid social ads</a><a href="#services">Email marketing</a></div>
-  <div><h4>Company</h4><a href="#how">How it works</a><a href="#team">Team</a><a href="#hire">Hire an employee</a><a href="#careers">Careers</a><a href="#faq">FAQ</a></div>
+  <div><h4>Company</h4><a href="#how">How it works</a><a href="#team">Team</a><a href="#careers">Careers</a><a href="#faq">FAQ</a></div>
   <div><h4>Contact</h4><div id="fcontact"></div></div>
  </div>
  <div class="copy"><span>© 2026 OaklineLiving LTD. All rights reserved.</span><span>oaklinelivingltd.com</span></div>
 </footer>
 
 <script src="team-shared.js?v=4"></script>
-<script src="site.js?v=5"></script>
+<script src="site.js?v=6"></script>
 </body>
 </html>

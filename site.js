@@ -43,23 +43,20 @@ function renderTeam(t){
  $('teamg').innerHTML=list.map((x,i)=>OakTeam.card(x,i,'')).join('');
  $('team').hidden=!list.length;
 }
-const jsel=$('j-role'),hsel=$('h-role');
+const jsel=$('j-role');
 function renderJobs(j){
  const list=(j.roles||[]).filter(x=>x&&x.title);
  $('roles').innerHTML=list.length?list.map(r=>`<div class="role"><div><b>${esc(r.title)}</b><br><span>${esc(r.type)}</span></div><button class="btn" type="button" data-r="${esc(r.title)}">Apply</button></div>`).join('')
   :'<div class="role"><div><b>No open roles right now</b><br><span>Send an open application and we will keep you in mind.</span></div></div>';
  jsel.innerHTML='<option value="">Choose a role</option>'+list.map(r=>`<option>${esc(r.title)}</option>`).join('')+'<option>Other / open application</option>';
 }
-function renderHire(h){
- const list=(h.roles||[]).filter(x=>x&&x.title);
- $('talent').innerHTML=list.map(r=>`<div class="role"><div><b>${esc(r.title)}</b><br><span>${esc(r.desc)}</span></div><button class="btn" type="button" data-h="${esc(r.title)}">Hire</button></div>`).join('');
- hsel.innerHTML='<option value="">Choose a role</option>'+list.map(r=>`<option>${esc(r.title)}</option>`).join('')+'<option>Other</option>';
-}
 function renderSettings(s){
  const rows=[];
  if(s.whatsapp)rows.push(['WhatsApp',s.whatsapp,`https://wa.me/${digits(s.whatsapp)}`,'Chat now']);
  if(s.phone)rows.push(['Business phone',s.phone,`tel:+${digits(s.phone)}`,'Call us']);
  if(s.email)rows.push(['Email',s.email,`mailto:${s.email}`,'Email us']);
+ const cards=rows.map(r=>`<div class="role"><div><b>${r[0]}</b><br><span style="overflow-wrap:anywhere">${esc(r[1])}</span></div><a class="btn" href="${esc(r[2])}">${r[3]}</a></div>`).join('');
+ if($('ccontacts'))$('ccontacts').innerHTML=cards;
  $('contacts').innerHTML=rows.map(r=>`<div class="role"><div><b>${r[0]}</b><br><span style="overflow-wrap:anywhere">${esc(r[1])}</span></div><a class="btn" href="${esc(r[2])}">${r[3]}</a></div>`).join('');
  const soc=[['Instagram',s.instagram],['TikTok',s.tiktok],['Facebook',s.facebook],['LinkedIn',s.linkedin]].filter(x=>x[1]);
  $('fcontact').innerHTML=rows.map(r=>`<a href="${esc(r[2])}" style="overflow-wrap:anywhere">${esc(r[1])}</a>`).join('')+soc.map(x=>`<a href="${esc(x[1])}">${x[0]}</a>`).join('');
@@ -67,13 +64,12 @@ function renderSettings(s){
  if(s.whatsapp)document.querySelectorAll('a.wa').forEach(a=>a.href=`https://wa.me/${digits(s.whatsapp)}`);
 }
 $('roles').addEventListener('click',e=>{const b=e.target.closest('button[data-r]');if(!b)return;jsel.value=b.dataset.r;$('jobf').scrollIntoView({behavior:'smooth',block:'start'})});
-$('talent').addEventListener('click',e=>{const b=e.target.closest('button[data-h]');if(!b)return;hsel.value=b.dataset.h;$('hiref').scrollIntoView({behavior:'smooth',block:'start'})});
 
 let settings=fallback.settings;
 const load=n=>fetch(`content/${n}.json`,{cache:'no-cache'}).then(r=>r.ok?r.json():fallback[n]).catch(()=>fallback[n]);
 renderSettings(settings);
-Promise.all(['team','jobs','hire','settings'].map(load)).then(([t,j,h,s])=>{
- renderTeam(t);renderJobs(j);renderHire(h);settings=Object.assign({},fallback.settings,s);renderSettings(settings);
+Promise.all(['team','jobs','settings'].map(load)).then(([t,j,s])=>{
+ renderTeam(t);renderJobs(j);settings=Object.assign({},fallback.settings,s);renderSettings(settings);
 });
 
 // forms -> Google Apps Script (instant email from your own Gmail, CV attached)
@@ -114,7 +110,6 @@ function wire(id,msg,key){
   btn.disabled=false;
  });
 }
-wire('hiref','Your hiring request is in. We will contact you within 24 hours to discuss candidates.','hire');
 wire('jobf','Your application has been received. We review every application and reply within 5 working days.','job');
 wire('startf','We will reply within 24 hours with a plan for your store.','store');
 }
