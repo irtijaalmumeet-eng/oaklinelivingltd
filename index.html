@@ -92,22 +92,16 @@ header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 9
 .why p{margin-top:8px;color:color-mix(in srgb,var(--bg) 75%,transparent)}
 @media(max-width:860px){.why{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:480px){.why{grid-template-columns:minmax(0,1fr)}}
-.team{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.team{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
 @media(max-width:900px){.team{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:440px){.team{grid-template-columns:minmax(0,1fr)}}
-.mem{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden}
-.mem svg{display:block;width:100%;height:auto;background:var(--sand)}
-.mem{display:flex;flex-direction:column}
-.mem>div{padding:18px;display:flex;flex-direction:column;flex:1}
-.mcon{display:grid;gap:8px;margin-top:auto;padding-top:16px}
-.cbtn{display:flex;align-items:center;gap:10px;min-height:44px;padding:8px 12px;border:1.5px solid var(--line);border-radius:12px;text-decoration:none;font-size:14px;font-weight:500;color:var(--ink);background:var(--bg)}
-.cbtn:hover{border-color:var(--oak)}
-.cbtn:focus-visible{outline:3px solid var(--sage);outline-offset:2px}
-.cbtn svg{width:20px;height:20px;flex:none;fill:none;stroke:var(--oak);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.cbtn.wa svg{stroke:var(--sage)}
-.cbtn span{overflow-wrap:anywhere;min-width:0}
-.mem small{display:block;color:var(--oak);font-weight:600;font-size:14px;margin:4px 0 8px}
-.mem p{color:var(--soft);font-size:15px}
+.mem{background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column}
+.memlink{display:block;background:var(--sand)}
+.memph{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 20%}
+.membody{padding:20px 20px 22px;display:flex;flex-direction:column;gap:6px;flex:1}
+.mem small{display:block;color:var(--oak);font-weight:600;font-size:14px}
+.mem h3{font-size:20px}
+.memb{margin-top:auto;min-height:44px;font-size:15px;align-self:stretch;margin-top:14px}
 .note{font-size:13px;color:var(--soft);margin-top:16px}
 /* careers + forms */
 .split{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(24px,4vw,56px);align-items:start}
@@ -290,7 +284,7 @@ footer{background:var(--sand);padding:56px max(5vw,16px) 28px}
  <div class="wrap">
   <div class="head"><h2>Meet the team</h2><p class="lead">The people who build, launch and grow your store.</p></div>
   <div class="team" id="teamg"></div>
-  <p class="note">Message any team member directly on WhatsApp or email.</p>
+  <p class="note"><a href="team/">See the full team →</a></p>
  </div>
 </section>
 
@@ -395,6 +389,7 @@ footer{background:var(--sand);padding:56px max(5vw,16px) 28px}
  <div class="copy"><span>© 2026 OaklineLiving LTD. All rights reserved.</span><span>oaklinelivingltd.com</span></div>
 </footer>
 
+<script src="team-shared.js"></script>
 <script src="site.js"></script>
 </body>
 </html>
