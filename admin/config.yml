@@ -29,6 +29,8 @@ collections:
               - { name: role, label: Job title, widget: string }
               - { name: bio, label: Short bio, widget: text }
               - { name: photo, label: Photo (optional), widget: image, required: false }
+              - { name: whatsapp, label: WhatsApp number (optional), widget: string, required: false, hint: "With country code, e.g. +44 7848 495605. Leave empty to use the company WhatsApp." }
+              - { name: email, label: Email (optional), widget: string, required: false, hint: "Leave empty to use the company email." }
 
       - name: jobs
         label: Job openings (Careers)
