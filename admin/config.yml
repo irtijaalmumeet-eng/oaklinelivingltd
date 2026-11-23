@@ -31,8 +31,8 @@ collections:
               - { name: photo, label: Photo, widget: image, required: false }
               - { name: employee_id, label: "Employee ID (e.g. OAK-EM-0001)", widget: string, required: false }
               - { name: email, label: "Email (optional, uses company email if empty)", widget: string, required: false }
-              - { name: phone, label: "Phone (optional, uses company phone if empty)", widget: string, required: false }
-              - { name: whatsapp, label: "WhatsApp (optional, uses company WhatsApp if empty)", widget: string, required: false }
+              - { name: phone, label: "Phone (shown only if filled in)", widget: string, required: false }
+              - { name: whatsapp, label: "WhatsApp (shown only if filled in)", widget: string, required: false }
 
       - name: jobs
         label: Job openings (Careers)
