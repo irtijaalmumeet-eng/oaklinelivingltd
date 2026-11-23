@@ -160,6 +160,38 @@ footer{background:var(--sand);padding:56px max(5vw,16px) 28px}
 .float{animation:fl 6s ease-in-out infinite}
 @keyframes fl{50%{transform:translateY(-6px)}}
 @media(prefers-reduced-motion:reduce){.float{animation:none}html{scroll-behavior:auto}}
+
+/* phone layout */
+.mbar{display:none}
+@media(max-width:600px){
+ .band{padding-block:44px}
+ .head{margin-bottom:24px;gap:12px}
+ h2{font-size:clamp(27px,7.6vw,34px)}
+ .lead{font-size:16px}
+ .grid3{gap:10px}
+ .svc{display:grid;grid-template-columns:40px minmax(0,1fr);column-gap:14px;row-gap:2px;padding:16px;border-radius:16px;align-items:start}
+ .svc svg{width:36px;height:36px;grid-row:span 2}
+ .svc h3{font-size:17px}
+ .svc p{font-size:14.5px;line-height:1.5}
+ .svc .btn{grid-column:1/-1;margin-top:10px!important;align-self:stretch!important}
+ .team{display:flex;gap:12px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scroll-padding-inline:max(5vw,16px);margin-inline:calc(-1*max(5vw,16px));padding:2px max(5vw,16px) 10px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+ .team::-webkit-scrollbar{display:none}
+ .mem{flex:0 0 min(78%,300px);scroll-snap-align:start}
+ .memph{aspect-ratio:5/4}
+ .membody{padding:14px 16px 16px;gap:4px}
+ .mem h3{font-size:18px}
+ .memb{margin-top:10px}
+ .tdots{display:flex;justify-content:center;gap:8px;margin-top:12px}
+ .tdots i{width:7px;height:7px;border-radius:50%;background:var(--line);transition:background .2s,width .2s}
+ .tdots i.on{background:var(--oak);width:20px;border-radius:4px}
+ form{padding:18px;gap:12px;border-radius:20px}
+ .role{padding:14px 16px}
+ body{padding-bottom:calc(76px + env(safe-area-inset-bottom))}
+ .mbar{display:flex;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:30;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:color-mix(in srgb,var(--bg) 94%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--line);transition:transform .25s ease}
+ .mbar .btn{flex:1;min-height:48px;padding:0 12px;font-size:15px}
+ .mbar.hide{transform:translateY(110%)}
+}
+@media(min-width:601px){.tdots{display:none}}
 </style>
 </head>
 <body>
@@ -360,6 +392,6 @@ footer{background:var(--sand);padding:56px max(5vw,16px) 28px}
 </footer>
 
 <script src="team-shared.js?v=4"></script>
-<script src="site.js?v=7"></script>
+<script src="site.js?v=8"></script>
 </body>
 </html>
