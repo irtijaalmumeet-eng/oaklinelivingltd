@@ -4,25 +4,33 @@
       "name": "Irtija Al Mumeet",
       "role": "Founder & CEO",
       "bio": "Leads strategy and makes sure every client store has a clear plan to profit.",
-      "photo": "/images/uploads/WhatsApp Image 2026-09-30 at 15.09.05.jpeg"
+      "photo": "/images/uploads/WhatsApp Image 2026-09-30 at 15.09.05.jpeg",
+      "whatsapp": "+44784895605",
+      "email": "irtijaalmumeet@oaklinelivingltd.com"
     },
     {
       "name": "Mohammad Abdul Jalil",
       "role": "Director",
       "bio": "Manages Oakline Living Ltd’s finances, budgeting, financial planning, and reporting to ensure strong financial control and sustainable growth.",
-      "photo": ""
+      "photo": "",
+      "whatsapp": "",
+      "email": ""
     },
     {
       "name": "Marco Rossi",
       "role": "Shopify Developer",
       "bio": "Builds fast, clean stores and sets up themes, apps and payments.",
-      "photo": ""
+      "photo": "",
+      "whatsapp": "",
+      "email": ""
     },
     {
       "name": "Aisha Khan",
       "role": "Creative Lead",
       "bio": "Designs brands, product images and ad creatives that stop the scroll.",
-      "photo": ""
+      "photo": "",
+      "whatsapp": "",
+      "email": ""
     }
   ]
 }
