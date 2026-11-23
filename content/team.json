@@ -5,32 +5,40 @@
       "role": "Founder & CEO",
       "bio": "Leads strategy and makes sure every client store has a clear plan to profit.",
       "photo": "/images/uploads/WhatsApp Image 2026-09-30 at 15.09.05.jpeg",
-      "whatsapp": "+44784895605",
-      "email": "irtijaalmumeet@oaklinelivingltd.com"
+      "employee_id": "",
+      "email": "irtijaalmumeet@oaklinelivingltd.com",
+      "phone": "",
+      "whatsapp": "+44784895605"
     },
     {
       "name": "Mohammad Abdul Jalil",
       "role": "Director",
       "bio": "Manages Oakline Living Ltd’s finances, budgeting, financial planning, and reporting to ensure strong financial control and sustainable growth.",
-      "photo": "",
-      "whatsapp": "",
-      "email": ""
+      "photo": "/images/uploads/IMG_6840.jpeg",
+      "employee_id": "",
+      "email": "",
+      "phone": "",
+      "whatsapp": ""
     },
     {
       "name": "Md Ruhin Sarker",
       "role": "Marketing Executive",
       "bio": "Handles marketing campaigns, social media promotion, advertising, and brand development to increase customer engagement, attract new customers, and grow Oakline Living Ltd.",
       "photo": "",
-      "whatsapp": "+880 1581-692133",
-      "email": "mdruhinsarker@oaklinelivingltd.com"
+      "employee_id": "",
+      "email": "mdruhinsarker@oaklinelivingltd.com",
+      "phone": "",
+      "whatsapp": "+880 1581-692133"
     },
     {
       "name": "Aisha Khan",
       "role": "Creative Lead",
       "bio": "Designs brands, product images and ad creatives that stop the scroll.",
       "photo": "",
-      "whatsapp": "",
-      "email": ""
+      "employee_id": "",
+      "email": "",
+      "phone": "",
+      "whatsapp": ""
     }
   ]
 }
