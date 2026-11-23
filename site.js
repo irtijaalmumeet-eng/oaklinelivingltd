@@ -53,11 +53,12 @@ function renderJobs(j){
 function renderSettings(s){
  const rows=[];
  if(s.whatsapp)rows.push(['WhatsApp',s.whatsapp,`https://wa.me/${digits(s.whatsapp)}`,'Chat now']);
- if(s.phone)rows.push(['WhatsApp (UK)',s.phone,`https://wa.me/${digits(s.phone)}`,'Chat now']);
+ if(s.phone&&digits(s.phone)!==digits(s.whatsapp))rows.push(['WhatsApp (UK)',s.phone,`https://wa.me/${digits(s.phone)}`,'Chat now']);
  if(s.email)rows.push(['Email',s.email,`mailto:${s.email}`,'Email us']);
- const cards=rows.map(r=>`<div class="role"><div><b>${r[0]}</b><br><span style="overflow-wrap:anywhere">${esc(r[1])}</span></div><a class="btn" href="${esc(r[2])}">${r[3]}</a></div>`).join('');
+ const crow=rows.slice();if(s.facebook)crow.push(['Facebook','OaklineLiving LTD',s.facebook,'Follow us']);
+ const cards=crow.map(r=>`<div class="role"><div><b>${r[0]}</b><br><span style="overflow-wrap:anywhere">${esc(r[1])}</span></div><a class="btn" href="${esc(r[2])}"${/^https?:/.test(r[2])?' target="_blank" rel="noopener"':''}>${r[3]}</a></div>`).join('');
  if($('ccontacts'))$('ccontacts').innerHTML=cards;
- $('contacts').innerHTML=rows.map(r=>`<div class="role"><div><b>${r[0]}</b><br><span style="overflow-wrap:anywhere">${esc(r[1])}</span></div><a class="btn" href="${esc(r[2])}">${r[3]}</a></div>`).join('');
+ $('contacts').innerHTML=crow.map(r=>`<div class="role"><div><b>${r[0]}</b><br><span style="overflow-wrap:anywhere">${esc(r[1])}</span></div><a class="btn" href="${esc(r[2])}"${/^https?:/.test(r[2])?' target="_blank" rel="noopener"':''}>${r[3]}</a></div>`).join('');
  const soc=[['Instagram',s.instagram],['TikTok',s.tiktok],['Facebook',s.facebook],['LinkedIn',s.linkedin]].filter(x=>x[1]);
  $('fcontact').innerHTML=rows.map(r=>`<a href="${esc(r[2])}" style="overflow-wrap:anywhere">${esc(r[1])}</a>`).join('')+soc.map(x=>`<a href="${esc(x[1])}">${x[0]}</a>`).join('');
  $('freg').textContent=[s.company_number?`Company no. ${s.company_number}`:'',s.address||''].filter(Boolean).join(' · ');
