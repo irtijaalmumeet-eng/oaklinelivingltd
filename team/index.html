@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Our team · OaklineLiving LTD</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* VOICE occasion: a calm, premium agency site for Shopify beginners
+   IDEA a store being built plank by plank, like oak joinery: warm, solid, finished
+   PICTURE an illustrated browser window of a new Shopify store with ad + email cards docked around it
+   COLOUR cream ground, beige/sand fields, espresso ink, oak brown accent, sage support
+   TYPE Plus Jakarta Sans 800 display + Inter text
+   LAYOUT laptop: title across top, store picture beneath full width; phone: title, picture, buttons */
+:root{color-scheme:light dark;
+--bg:light-dark(#f7f1e6,#1c1712);
+--sand:light-dark(#ece1cd,#29221b);
+--card:light-dark(#fffaf1,#241e18);
+--ink:light-dark(#2b2118,#f3e9d9);
+--soft:light-dark(#6b5a48,#c4b29b);
+--line:light-dark(#dccdb4,#3d3329);
+--oak:light-dark(#8a5a2b,#d9a466);
+--oakd:light-dark(#6e4520,#e8b97f);
+--sage:light-dark(#7c8a6a,#a3b38f);
+--on:light-dark(#fffaf1,#1c1712)}
+:root[data-theme=light]{color-scheme:light}
+:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Inter,system-ui,sans-serif;overflow-x:clip}
+h1,h2,h3{font-family:"Plus Jakarta Sans",Inter,sans-serif;letter-spacing:-.02em;line-height:1.08;margin:0;text-wrap:balance}
+h1{font-size:clamp(36px,5.4vw,60px);font-weight:800}
+h2{font-size:clamp(30px,3.8vw,44px);font-weight:800}
+h3{font-size:19px;font-weight:700}
+p{margin:0}
+a{color:inherit}
+.wrap{max-width:1240px;margin:0 auto}
+.band{padding-block:clamp(48px,6vw,96px);padding-inline:max(5vw,16px)}
+.sandb{background:var(--sand)}
+.inkb{background:var(--ink);color:var(--bg)}
+.lead{font-size:17px;color:var(--soft);max-width:60ch}
+.inkb .lead{color:color-mix(in srgb,var(--bg) 78%,transparent)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 22px;border-radius:999px;font:600 16px Inter,sans-serif;text-decoration:none;border:1.5px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer}
+.btn.pri{background:var(--oak);border-color:var(--oak);color:var(--on)}
+.btn:hover{transform:translateY(-1px)}
+.btn:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible,.nav a:focus-visible{outline:3px solid var(--sage);outline-offset:2px}
+/* nav */
+header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;gap:20px;padding:12px max(5vw,16px);max-width:1340px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:10px;font:800 19px "Plus Jakarta Sans",sans-serif;text-decoration:none;white-space:nowrap}
+.nav{display:flex;gap:4px;margin-left:auto;flex-wrap:wrap}
+.nav a{text-decoration:none;font-weight:500;font-size:15px;padding:10px 12px;border-radius:10px;color:var(--soft)}
+.nav a:hover{color:var(--ink);background:var(--sand)}
+.bar .btn{min-height:44px;padding:0 18px;font-size:15px}
+.menu{display:none}
+@media(max-width:900px){.nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--bg);flex-direction:column;padding:8px 16px 16px;border-bottom:1px solid var(--line)}.nav.open{display:flex}.menu{display:inline-flex;margin-left:auto}.bar>.btn.pri{display:none}}
+/* hero */
+.hero{padding-bottom:0}
+.htop{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:clamp(20px,4vw,56px);align-items:end}
+.htop .lead{margin-top:18px}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.trust{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:18px;font-size:14px;color:var(--soft)}
+.trust span{display:flex;align-items:center;gap:7px;white-space:nowrap}
+.trust span::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--sage)}
+.stage{margin-top:clamp(32px,4vw,56px);background:var(--sand);border-radius:28px 28px 0 0;padding:clamp(16px,3vw,40px) clamp(12px,3vw,40px) 0;overflow:hidden}
+.stage svg{display:block;width:100%;height:auto}
+@media(max-width:760px){.htop{grid-template-columns:minmax(0,1fr)}}
+/* sections */
+.head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:end;margin-bottom:40px}
+@media(max-width:760px){.head{grid-template-columns:minmax(0,1fr)}}
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border-top:2px solid var(--ink)}
+.steps div{padding:22px 22px 8px 0}
+.steps div+div{padding-left:22px;border-left:1px solid var(--line)}
+.steps b{display:block;font:800 15px "Plus Jakarta Sans",sans-serif;color:var(--oak);margin-bottom:10px}
+.steps p{color:var(--soft);margin-top:8px}
+@media(max-width:860px){.steps{grid-template-columns:repeat(2,minmax(0,1fr))}.steps div:nth-child(3){padding-left:0;border-left:0}.steps div:nth-child(n+3){border-top:1px solid var(--line)}}
+@media(max-width:520px){.steps{grid-template-columns:minmax(0,1fr)}.steps div,.steps div+div{padding-left:0;border-left:0}.steps div+div{border-top:1px solid var(--line)}}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+@media(max-width:900px){.grid3{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:580px){.grid3{grid-template-columns:minmax(0,1fr)}}
+.svc{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:26px;display:flex;flex-direction:column;gap:10px}
+.svc svg{width:48px;height:48px}
+.svc p{color:var(--soft)}
+.svc.big{background:var(--oak);border-color:var(--oak);color:var(--on)}
+.svc.big p{color:color-mix(in srgb,var(--on) 85%,transparent)}
+.svc.big svg *{stroke:var(--on)}
+.why{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;margin-top:8px}
+.why div{border-top:1px solid color-mix(in srgb,var(--bg) 35%,transparent);padding-top:18px}
+.why h3{font-size:clamp(22px,2.4vw,28px)}
+.why p{margin-top:8px;color:color-mix(in srgb,var(--bg) 75%,transparent)}
+@media(max-width:860px){.why{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:480px){.why{grid-template-columns:minmax(0,1fr)}}
+.team{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+@media(max-width:900px){.team{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:440px){.team{grid-template-columns:minmax(0,1fr)}}
+.mem{background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column}
+.memlink{display:block;background:var(--sand)}
+.memph{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 20%}
+.membody{padding:20px 20px 22px;display:flex;flex-direction:column;gap:6px;flex:1}
+.mem small{display:block;color:var(--oak);font-weight:600;font-size:14px}
+.mem h3{font-size:20px}
+.memb{margin-top:auto;min-height:44px;font-size:15px;align-self:stretch;margin-top:14px}
+.note{font-size:13px;color:var(--soft);margin-top:16px}
+/* careers + forms */
+.split{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(24px,4vw,56px);align-items:start}
+@media(max-width:860px){.split{grid-template-columns:minmax(0,1fr)}}
+.roles{display:grid;gap:12px;margin-top:28px}
+.role{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px}
+.role span{color:var(--soft);font-size:14px}
+.role button{min-height:44px;font-size:14px;padding:0 16px}
+form{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:clamp(20px,3vw,32px);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+form h3{grid-column:1/-1;font-size:24px}
+.f{display:flex;flex-direction:column;gap:6px}
+.f.w{grid-column:1/-1}
+label{font-weight:600;font-size:14px}
+input,select,textarea{font:16px Inter,sans-serif;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:12px;padding:12px 14px;min-height:48px;width:100%}
+textarea{min-height:110px;resize:vertical}
+input[type=file]{padding:10px}
+.chk{grid-column:1/-1;display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--soft)}
+.chk input{width:20px;height:20px;min-height:0;margin-top:2px;flex:none;accent-color:var(--oak)}
+form .btn{grid-column:1/-1}
+.plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:24px}
+.plan{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px}
+.plan b{display:block;font:700 16px "Plus Jakarta Sans",sans-serif}
+.plan span{color:var(--soft);font-size:14px}
+@media(max-width:520px){.plans{grid-template-columns:minmax(0,1fr)}}
+.shot{margin:0;background:var(--card);border:1px solid var(--line);border-radius:24px;padding:clamp(8px,1.5vw,16px);overflow:hidden}
+.shot img{display:block;width:100%;height:auto;border-radius:14px}
+.shot figcaption{font-size:14px;color:var(--soft);padding:12px 6px 4px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(9em,1fr));gap:16px;margin-bottom:24px}
+.stats div{border-top:2px solid var(--oak);padding-top:10px}
+.stats b{display:block;font:800 clamp(26px,3vw,34px) "Plus Jakarta Sans",sans-serif;white-space:nowrap}
+.stats span{color:var(--soft);font-size:14px}
+.ok{grid-column:1/-1;display:none;background:color-mix(in srgb,var(--sage) 22%,var(--card));border-radius:14px;padding:14px 16px;font-size:15px}
+.ok.show{display:block}
+.err{color:#b4432c;font-size:13px;display:none}
+.f.bad .err{display:block}
+.f.bad input,.f.bad select,.f.bad textarea{border-color:#b4432c}
+@media(max-width:560px){form{grid-template-columns:minmax(0,1fr)}}
+/* faq */
+details{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;list-style:none;padding:20px 40px 20px 0;font:700 18px "Plus Jakarta Sans",sans-serif;position:relative}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;right:6px;top:16px;font-size:26px;color:var(--oak)}
+details[open] summary::after{content:"–"}
+details p{padding:0 0 20px;color:var(--soft);max-width:70ch}
+/* cta + footer */
+.cta{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;background:var(--oak);color:var(--on);border-radius:28px;padding:clamp(28px,4vw,56px)}
+.cta p{margin-top:10px;color:color-mix(in srgb,var(--on) 85%,transparent)}
+.cta .btn{background:var(--on);border-color:var(--on);color:var(--oakd)}
+footer{background:var(--sand);padding:56px max(5vw,16px) 28px}
+.fcols{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(3,minmax(0,1fr));gap:28px;max-width:1240px;margin:0 auto}
+.fcols h4{margin:0 0 12px;font:700 15px "Plus Jakarta Sans",sans-serif}
+.fcols a,.fcols span{display:block;color:var(--soft);text-decoration:none;padding:3px 0;font-size:15px}
+.fcols a:hover{color:var(--ink)}
+.copy{max-width:1240px;margin:36px auto 0;padding-top:18px;border-top:1px solid var(--line);font-size:13px;color:var(--soft);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+@media(max-width:760px){.fcols{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.float{animation:fl 6s ease-in-out infinite}
+@keyframes fl{50%{transform:translateY(-6px)}}
+@media(prefers-reduced-motion:reduce){.float{animation:none}html{scroll-behavior:auto}}
+
+/* team page + profile */
+.back{display:inline-flex;align-items:center;gap:6px;color:var(--soft);text-decoration:none;font-weight:500;min-height:44px}
+.back:hover{color:var(--ink)}
+.prof{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);background:var(--card);border:1px solid var(--line);border-top:3px solid var(--oak);border-radius:24px;overflow:hidden;margin-top:12px}
+.pside{background:var(--sand);padding:32px 24px;display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center}
+.pring{width:180px;height:180px;border-radius:50%;padding:4px;background:var(--oak)}
+.pring .memph,.pring img,.pring svg{width:100%;height:100%;aspect-ratio:1;border-radius:50%;object-fit:cover;object-position:center 20%;display:block}
+.eid{font-size:14px;color:var(--soft)}
+.eid b{color:var(--ink);font-variant-numeric:tabular-nums}
+.qr{background:#fff;padding:12px;border-radius:16px;line-height:0}
+.qr img,.qr canvas{width:140px;height:140px}
+.scan{font-size:13px;color:var(--soft)}
+.pmain{padding:clamp(24px,4vw,44px);display:flex;flex-direction:column;gap:18px}
+.prole{color:var(--oak);font-weight:600;font-size:15px}
+.pmain h1{font-size:clamp(32px,4.5vw,48px)}
+.resp{border-left:3px solid var(--oak);padding-left:16px}
+.resp h2{font-size:15px;font-family:Inter,sans-serif;font-weight:600;color:var(--soft);letter-spacing:0;margin-bottom:6px}
+.resp p{font-size:17px;max-width:65ch}
+.pbtns{display:flex;flex-wrap:wrap;gap:10px}
+.pbtns .btn{overflow-wrap:anywhere;text-align:left;border-radius:14px;height:auto;padding:10px 18px}
+.verify{font-size:14px;color:var(--soft);overflow-wrap:anywhere}
+.verify a{color:var(--oak);font-weight:600}
+.missing{padding:40px 0}
+@media(max-width:760px){.prof{grid-template-columns:minmax(0,1fr)}}
+</style>
+</head>
+<body>
+<header>
+ <div class="bar">
+  <a class="logo" href="../"><svg width="30" height="30" viewBox="0 0 30 30"><rect width="30" height="30" rx="9" fill="var(--oak)"/><path d="M8 20c3-9 9-12 14-12-1 6-5 12-14 12z" fill="var(--on)"/><path d="M9 21l8-8" stroke="var(--oak)" stroke-width="1.6"/></svg>OaklineLiving</a>
+  <nav class="nav" id="nav">
+   <a href="../#how">How it works</a><a href="../#services">Services</a><a href="../#results">Results</a><a href="./">Team</a><a href="../#hire">Hire staff</a><a href="../#careers">Careers</a><a href="../#faq">FAQ</a><a href="../#contact">Contact</a>
+  </nav>
+  <button class="btn menu" id="menu" aria-expanded="false" aria-controls="nav">Menu</button>
+  <a class="btn pri" href="../#contact">Start your store</a>
+ </div>
+</header>
+
+<main>
+<section class="band">
+ <div class="wrap" id="view"><p class="missing">Loading…</p></div>
+</section>
+</main>
+<footer>
+ <div class="fcols">
+  <div><a class="logo" href="../#top" style="color:var(--ink);padding:0">OaklineLiving LTD</a><span style="margin-top:10px">Ecommerce growth for Shopify beginners. Registered in England &amp; Wales.</span><span id="freg"></span></div>
+  <div><h4>Services</h4><a href="../#services">Store setup</a><a href="../#services">Product research</a><a href="../#services">Paid social ads</a><a href="../#services">Email marketing</a></div>
+  <div><h4>Company</h4><a href="../#how">How it works</a><a href="../#team">Team</a><a href="../#hire">Hire an employee</a><a href="../#careers">Careers</a><a href="../#faq">FAQ</a></div>
+  <div><h4>Contact</h4><div id="fcontact"></div></div>
+ </div>
+ <div class="copy"><span>© 2026 OaklineLiving LTD. All rights reserved.</span><span>oaklinelivingltd.com</span></div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="../team-shared.js"></script>
+<script>
+{
+const T=OakTeam,esc=T.esc,$=id=>document.getElementById(id);
+const digits=v=>String(v||'').replace(/[^\d]/g,'');
+const m=$('menu'),nav=$('nav');
+m.addEventListener('click',()=>{const o=nav.classList.toggle('open');m.setAttribute('aria-expanded',o)});
+const get=n=>fetch('../content/'+n+'.json',{cache:'no-cache'}).then(r=>r.ok?r.json():{}).catch(()=>({}));
+Promise.all([get('team'),get('settings')]).then(([t,s])=>{
+ const list=(t.members||[]).filter(x=>x&&x.name);
+ // footer contact
+ const rows=[];
+ if(s.phone)rows.push([`tel:+${digits(s.phone)}`,s.phone]);
+ if(s.whatsapp)rows.push([`https://wa.me/${digits(s.whatsapp)}`,'WhatsApp '+s.whatsapp]);
+ if(s.email)rows.push([`mailto:${s.email}`,s.email]);
+ $('fcontact').innerHTML=rows.map(r=>`<a href="${esc(r[0])}" style="overflow-wrap:anywhere">${esc(r[1])}</a>`).join('');
+ $('freg').textContent=[s.company_number?`Company no. ${s.company_number}`:'',s.address||''].filter(Boolean).join(' · ');
+ document.querySelectorAll('a.wa').forEach(a=>{if(s.whatsapp)a.href=`https://wa.me/${digits(s.whatsapp)}`});
+ const id=new URLSearchParams(location.search).get('m');
+ const v=$('view');
+ if(!id){
+  document.title='Our team · OaklineLiving LTD';
+  v.innerHTML=`<div class="head"><h1>The people behind Oakline</h1><p class="lead">Every client works with a named, accountable team. Scan a team member's ID card QR code, or open a profile below, to see exactly who you're working with and what they do.</p></div><div class="team">${list.map((x,i)=>T.card(x,i,'../')).join('')}</div>`;
+  return;
+ }
+ const i=list.findIndex(x=>T.slug(x.name)===id);
+ if(i<0){v.innerHTML=`<a class="back" href="./">← Back to the team</a><p class="missing">We couldn't find this team member. They may have changed role or left the company.</p>`;return}
+ const x=list[i],url=location.origin+location.pathname+'?m='+T.slug(x.name);
+ document.title=`${x.name} · ${x.role} · OaklineLiving LTD`;
+ const email=x.email||s.email,phone=x.phone||s.phone,wa=x.whatsapp||s.whatsapp;
+ const btns=[];
+ if(email)btns.push(`<a class="btn pri" href="mailto:${esc(email)}">✉ ${esc(email)}</a>`);
+ if(phone)btns.push(`<a class="btn" href="tel:+${digits(phone)}">☎ ${esc(phone)}</a>`);
+ if(wa)btns.push(`<a class="btn" href="https://wa.me/${digits(wa)}">WhatsApp ${esc(wa)}</a>`);
+ v.innerHTML=`<a class="back" href="./">← Back to the team</a>
+ <article class="prof">
+  <div class="pside"><div class="pring">${T.pic(x,i,'memph')}</div><div class="eid">Employee · <b>${esc(T.empId(x,i))}</b></div><div class="qr" id="qr"></div><div class="scan">Scan to verify this profile</div></div>
+  <div class="pmain"><div class="prole">${esc(x.role)}</div><h1>${esc(x.name)}</h1>
+   ${x.bio?`<div class="resp"><h2>Role and responsibilities</h2><p>${esc(x.bio)}</p></div>`:''}
+   <div class="pbtns">${btns.join('')}</div>
+   <p class="verify">Verified profile: <a href="${esc(url)}">${esc(url.replace(/^https?:\/\//,''))}</a></p>
+  </div>
+ </article>`;
+ try{new QRCode($('qr'),{text:url,width:140,height:140,colorDark:'#2b2118',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.M})}catch(e){$('qr').parentNode.querySelector('.scan').textContent='';$('qr').remove()}
+});
+}
+</script>
+</body>
+</html>
