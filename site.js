@@ -76,18 +76,42 @@ Promise.all(['team','jobs','hire','settings'].map(load)).then(([t,j,h,s])=>{
  renderTeam(t);renderJobs(j);renderHire(h);settings=Object.assign({},fallback.settings,s);renderSettings(settings);
 });
 
-// forms -> FormSubmit (emails each submission, CVs attached)
+// forms -> Google Apps Script (instant email from your own Gmail, CV attached)
+// Paste the Web app URL between the quotes after deploying. Empty = falls back to FormSubmit.
+const FORM_ENDPOINT='https://script.google.com/macros/s/AKfycbwyZpIYzotLtQhdilw8Ktp9ECSIi8ndd9Iz3Ok0bxZH4rXUH8zas6lN76qOAChNSawrcg/exec';
+const labelOf=el=>{const l=document.querySelector(`label[for="${el.id}"]`)||el.closest("label");return (l?l.textContent:el.name||el.id).replace(/\s+/g,' ').trim()};
+const readFile=file=>new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(String(r.result).split(',')[1]);r.onerror=rej;r.readAsDataURL(file)});
 function wire(id,msg,key){
  const f=$(id),ok=f.querySelector('.ok'),btn=f.querySelector('button[type=submit]');
  if(new URLSearchParams(location.search).get('sent')===key){ok.classList.add('show');ok.textContent='Thank you! '+msg}
- f.addEventListener('submit',e=>{
+ f.addEventListener('submit',async e=>{
   let good=true;
   f.querySelectorAll('[required]').forEach(el=>{const w=el.closest('.f');const v=el.type==='checkbox'?el.checked:el.checkValidity()&&el.value.trim()!=='';if(w)w.classList.toggle('bad',!v);if(!v)good=false});
   const cv=f.querySelector('input[type=file]');
-  if(cv&&cv.files[0]&&cv.files[0].size>9.5*1024*1024){good=false;ok.classList.add('show');ok.textContent='Your CV is too large. Please upload a file under 10 MB.';e.preventDefault();return}
+  if(cv&&cv.files[0]&&cv.files[0].size>9.5*1024*1024){e.preventDefault();ok.classList.add('show');ok.textContent='Your CV is too large. Please upload a file under 10 MB.';return}
   if(!good){e.preventDefault();ok.classList.add('show');ok.textContent='Please fill in the highlighted fields.';return}
-  if(settings.email)f.action='https://formsubmit.co/'+settings.email;
-  btn.disabled=true;ok.classList.add('show');ok.textContent='Sending…';
+  ok.classList.add('show');ok.textContent='Sending…';btn.disabled=true;
+  if(!FORM_ENDPOINT){if(settings.email)f.action='https://formsubmit.co/'+settings.email;return}
+  e.preventDefault();
+  try{
+   const fields={};
+   f.querySelectorAll('input,select,textarea').forEach(el=>{
+    if(!el.name||el.name.startsWith('_')||el.type==='file'||el.type==='hidden')return;
+    if(el.type==='checkbox'){fields[labelOf(el)||el.name]=el.checked?'Yes':'No';return}
+    const label=el.id==='j-email'||el.id==='h-email'||el.id==='s-email'?'Email':labelOf(el);
+    if(el.value.trim())fields[label]=el.value.trim();
+   });
+   const payload={_subject:f.querySelector('[name=_subject]').value,_honey:(f.querySelector('[name=_honey]')||{}).value||'',fields};
+   if(cv&&cv.files[0])payload.file={name:cv.files[0].name,type:cv.files[0].type,data:await readFile(cv.files[0])};
+   const r=await fetch(FORM_ENDPOINT,{method:'POST',body:JSON.stringify(payload)});
+   const out=await r.json().catch(()=>({ok:r.ok}));
+   if(!out.ok)throw 0;
+   const n=(fields['Full name']||fields['Your name']||'').split(' ')[0];
+   ok.textContent=`Thank you${n?' '+n:''}! ${msg}`;f.reset();
+  }catch(_){
+   ok.textContent=`Sorry, that didn't send. Please email us at ${settings.email} or message us on WhatsApp.`;
+  }
+  btn.disabled=false;
  });
 }
 wire('hiref','Your hiring request is in. We will contact you within 24 hours to discuss candidates.','hire');
