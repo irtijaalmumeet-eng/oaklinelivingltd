@@ -27,10 +27,12 @@ collections:
             fields:
               - { name: name, label: Name, widget: string }
               - { name: role, label: Job title, widget: string }
-              - { name: bio, label: Short bio, widget: text }
-              - { name: photo, label: Photo (optional), widget: image, required: false }
-              - { name: whatsapp, label: WhatsApp number (optional), widget: string, required: false, hint: "With country code, e.g. +44 7848 495605. Leave empty to use the company WhatsApp." }
-              - { name: email, label: Email (optional), widget: string, required: false, hint: "Leave empty to use the company email." }
+              - { name: bio, label: Role & responsibilities, widget: text, required: false }
+              - { name: photo, label: Photo, widget: image, required: false }
+              - { name: employee_id, label: "Employee ID (e.g. OAK-EM-0001)", widget: string, required: false }
+              - { name: email, label: "Email (optional, uses company email if empty)", widget: string, required: false }
+              - { name: phone, label: "Phone (optional, uses company phone if empty)", widget: string, required: false }
+              - { name: whatsapp, label: "WhatsApp (optional, uses company WhatsApp if empty)", widget: string, required: false }
 
       - name: jobs
         label: Job openings (Careers)
