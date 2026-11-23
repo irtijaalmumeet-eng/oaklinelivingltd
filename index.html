@@ -97,7 +97,15 @@ header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 9
 @media(max-width:440px){.team{grid-template-columns:minmax(0,1fr)}}
 .mem{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden}
 .mem svg{display:block;width:100%;height:auto;background:var(--sand)}
-.mem div{padding:18px}
+.mem{display:flex;flex-direction:column}
+.mem>div{padding:18px;display:flex;flex-direction:column;flex:1}
+.mcon{display:grid;gap:8px;margin-top:auto;padding-top:16px}
+.cbtn{display:flex;align-items:center;gap:10px;min-height:44px;padding:8px 12px;border:1.5px solid var(--line);border-radius:12px;text-decoration:none;font-size:14px;font-weight:500;color:var(--ink);background:var(--bg)}
+.cbtn:hover{border-color:var(--oak)}
+.cbtn:focus-visible{outline:3px solid var(--sage);outline-offset:2px}
+.cbtn svg{width:20px;height:20px;flex:none;fill:none;stroke:var(--oak);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.cbtn.wa svg{stroke:var(--sage)}
+.cbtn span{overflow-wrap:anywhere;min-width:0}
 .mem small{display:block;color:var(--oak);font-weight:600;font-size:14px;margin:4px 0 8px}
 .mem p{color:var(--soft);font-size:15px}
 .note{font-size:13px;color:var(--soft);margin-top:16px}
@@ -282,7 +290,7 @@ footer{background:var(--sand);padding:56px max(5vw,16px) 28px}
  <div class="wrap">
   <div class="head"><h2>Meet the team</h2><p class="lead">The people who build, launch and grow your store.</p></div>
   <div class="team" id="teamg"></div>
-  <p class="note">Sample team profiles for the demo. Send us real names, roles and photos to replace them.</p>
+  <p class="note">Message any team member directly on WhatsApp or email.</p>
  </div>
 </section>
 
